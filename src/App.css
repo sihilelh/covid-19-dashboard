@@ -1,38 +1,208 @@
-.App {
-  text-align: center;
-}
+/* ----------------------------
+/*  Name: Covid Dashboard
+   Author: Sihilel Himasara
+   Version: v.1
+/* -------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap");
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #211b26;
   min-height: 100vh;
+  min-width: 100vw;
+  color: #fff;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background-color: #bdb1c2;
+}
+::-webkit-scrollbar-thumb {
+  background: #684179;
+}
+nav.navigation {
+  box-shadow: 0px -8px 15px rgba(0, 0, 0, 0.4);
+  width: 60px;
+  height: 100vh;
+  background-color: #382844;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.nav-item {
+  margin: 25px 0;
+}
+main {
+  margin-left: 60px;
+}
+.top-bar {
+  height: 60px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+.app-name {
+  font-size: 1.7rem;
+  font-weight: 500;
+}
+.front-data {
+  margin-top: 50px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.data-field {
+  width: 30%;
+  height: 120px;
+  background-color: #4c2f59;
+  border-radius: 15px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  box-shadow: 0px 4px 35px rgba(0, 0, 0, 0.25);
+}
+.data-field .text {
+  text-transform: capitalize;
+  margin: 0 20px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  width: 60%;
+}
+.data-field .number {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  width: 80px;
+  height: 80px;
+  background-color: #000;
+  position: absolute;
+  top: -25%;
+  right: 25px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 15px;
 }
-
-.App-link {
-  color: #61dafb;
+.data-field.green .number {
+  background: linear-gradient(131.19deg, #7eff51 0%, #00732e 99.79%);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.data-field.red .number {
+  background: linear-gradient(131.19deg, #ff5151 0%, #730000 99.79%);
+}
+.data-field.blue .number {
+  background: linear-gradient(131.19deg, #51e0ff 0%, #006c73 99.79%);
+}
+.charts,
+.charts-bottom {
+  margin-top: 50px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.charts-bottom > div {
+  width: 32.5%;
+}
+.charts > div {
+  width: 48%;
+}
+@media screen and (max-width: 768px) {
+  .charts,
+  .charts-bottom {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .charts > div,
+  .charts-bottom > div {
+    width: 100%;
   }
+  .front-data {
+    flex-direction: column;
+  }
+  .data-field {
+    width: 100%;
+    height: 100px;
+    margin: 20px 0;
+  }
+  .data-field .text {
+    font-size: 1.3rem !important;
+  }
+  .data-field .number {
+    width: 90px !important;
+    height: 90px !important;
+    font-size: 1.5rem !important;
+  }
+  nav.navigation {
+    width: 100vw;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-around;
+    top: auto;
+    bottom: 0;
+  }
+  main {
+    margin: 0;
+    margin-bottom: 60px;
+  }
+  .update-time {
+    margin-bottom: 70px !important;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .data-field .text {
+    font-size: 1rem;
+  }
+  .data-field .number {
+    width: 70px;
+    height: 70px;
+    right: 15px;
+    font-size: 1.3rem;
+  }
+}
+.chart-container,
+.apexcharts-tooltip {
+  color: #382844;
+}
+.card {
+  background: #382844;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 30px 0;
+  max-height: 500px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.card-head {
+  padding: 20px 30px;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+}
+.card-body {
+  margin: auto 0;
+}
+.ml-auto {
+  margin-left: auto;
+}
+.ico-20 {
+  color: #fff !important;
+  width: 20px;
+  height: 20px;
+}
+.update-time {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 30px;
 }

@@ -1,0 +1,74 @@
+.r-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00000066;
+  animation: bgColor 1s;
+  z-index: 9999;
+  color: #000;
+}
+@keyframes bgColor {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.r-modal {
+  padding: 20px;
+  max-width: 50vw;
+  min-width: 30vw;
+  background: #fff;
+  border-radius: 15px;
+}
+.r-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.r-buttons {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+.r-buttons > button {
+  width: 48%;
+}
+.btn {
+  font-family: "Montserrat", sans-serif;
+  background-color: #382844;
+  outline: none;
+  border: #4f3e5d 2.5px solid;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn:active {
+  opacity: 0.8;
+}
+.btn.outline {
+  background-color: #38284400;
+  color: #382844;
+  transition: background-color 0.2s;
+}
+.btn.outline:active{
+    background-color: #38284466;
+}
+@media screen and (max-width: 768px) {
+  .r-modal {
+    padding: 20px;
+    max-width: 85vw;
+    min-width: 70vw;
+    background: #fff;
+    border-radius: 15px;
+  }
+}
